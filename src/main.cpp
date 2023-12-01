@@ -75,15 +75,13 @@ void autonomous() {}
  */
 void opcontrol() {
 #include "main.h"
-//#define DIGITAL_SENSOR_PORT_A 'A'
-//#define DIGITAL_SENSOR_PORT_B 'B'
+
 
 void opcontrol();
 	
 	pros::Controller master (CONTROLLER_MASTER);
 
-//	pros::ADIDigitalOut pistonA (DIGITAL_SENSOR_PORT_A);
-//	pros::ADIDigitalOut pistonB (DIGITAL_SENSOR_PORT_B);
+
 	
 	pros::Motor left1 (9, MOTOR_GEARSET_18, false);
 	pros::Motor left2 (10, MOTOR_GEARSET_18, false); 
@@ -96,16 +94,6 @@ void opcontrol();
 
 	while (true) {
 		
-//		switch(master.get_digital(DIGITAL_A)) {
-//			transistion = !transistion;
-//		pros::delay(10);
-//		}
-
-
-//		pistonA.set_value(transistion);
-//		pistonB.set_value(!transistion);
-
-
 
 		int left1Control = (master.get_analog(ANALOG_LEFT_Y))-(0.75*master.get_analog(ANALOG_LEFT_X));
 		int left2Control = (master.get_analog(ANALOG_LEFT_Y))-(0.75*master.get_analog(ANALOG_LEFT_X));
