@@ -111,4 +111,3 @@ void opcontrol();
 		pros::delay(2);
 	}
 }
-
