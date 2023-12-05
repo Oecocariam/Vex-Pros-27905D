@@ -123,6 +123,6 @@ void opcontrol();
 		double wingLeftPosition = wingLeft.get_position ( );
 
 		std::cout << wingLeftPosition;
-		pros::lcd::print(6,"%d", wingLeftPosition);
+		
 	}
 }
