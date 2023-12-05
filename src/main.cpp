@@ -89,7 +89,10 @@ void opcontrol();
 
 	bool wingState = false;
 
+	
 //	Ah, yes, the simple comment, definition of piston, controller , and motors
+
+		pros::lcd::initialize();
 
 	while (true) {
 		
@@ -117,6 +120,8 @@ void opcontrol();
 
 
 		}
+		double wingLeftPosition = wingLeft.get_position ( );
 
+		std::cout << wingLeftPosition;
 	}
 }
