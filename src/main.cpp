@@ -87,7 +87,7 @@ void opcontrol();
 	pros::Motor wingLeft (6, MOTOR_GEARSET_18, false);
 	pros::Motor wingRight (1, MOTOR_GEARSET_18, false);
 
-	bool wingState = false;
+	int wingState = 1;
 
 	
 //	Ah, yes, the simple comment, definition of piston, controller , and motors
@@ -115,14 +115,11 @@ void opcontrol();
 
 		switch(master.get_digital(DIGITAL_A)) {
 
-				wingState = !wingState;
+				
 		pros::delay(10);
 
-
+			wingLeft.move_relative(90*wingState, 127);
+			wingState *= -1;
 		}
-		double wingLeftPosition = wingLeft.get_position ( );
-
-		std::cout << wingLeftPosition;
-		pros::lcd::print(6,"%d", wingLeftPosition);
 	}
 }
