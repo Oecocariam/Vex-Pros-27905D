@@ -119,6 +119,7 @@ void opcontrol();
 		pros::delay(10);
 
 			wingLeft.move_relative(90*wingState, 127);
+			wingLeft.move(127);
 			wingState *= -1;
 		}
 	}
