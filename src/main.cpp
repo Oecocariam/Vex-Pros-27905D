@@ -113,14 +113,14 @@ void opcontrol();
 		pros::delay(2);
 
 
-		switch(master.get_digital(DIGITAL_A)) {
+	//	switch(master.get_digital(DIGITAL_A)) {
 
 				
-		pros::delay(10);
+	//	pros::delay(10);
 
-			wingLeft.move_relative(90*wingState, 127);
+			wingLeft.move_relative(90*wingState, 1000);
 			wingLeft.move(127);
 			wingState *= -1;
-		}
+	//	}
 	}
 }
