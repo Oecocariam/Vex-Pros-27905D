@@ -74,11 +74,9 @@ void autonomous() {}
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-#include "main.h"
 
 
 void opcontrol();
-	
 	pros::Controller master (CONTROLLER_MASTER);
 
 	pros::Motor left1 (9, MOTOR_GEARSET_18, false);
@@ -86,10 +84,10 @@ void opcontrol();
 	pros::Motor right1 (18, MOTOR_GEARSET_18, false); 
 	pros::Motor right2 (20, MOTOR_GEARSET_18, false); 
 
-	pros::Motor wingLeft (20, MOTOR_GEARSET_18, false);
-	pros::Motor wingRight (20, MOTOR_GEARSET_18, false);
+	pros::Motor wingLeft (6, MOTOR_GEARSET_18, false);
+	pros::Motor wingRight (1, MOTOR_GEARSET_18, false);
 
-	bool transistion = false;
+	bool wingState = false;
 
 //	Ah, yes, the simple comment, definition of piston, controller , and motors
 
@@ -110,5 +108,15 @@ void opcontrol();
 		right2.move(right2Control);
 
 		pros::delay(2);
+
+
+		switch(master.get_digital(DIGITAL_A)) {
+
+				wingState = !wingState;
+		pros::delay(10);
+
+
+		}
+
 	}
 }
