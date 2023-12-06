@@ -120,7 +120,7 @@ void opcontrol();
 
 			wingLeft.move_relative(180*wingState, 1000);
 			wingState *= -1;
-			pros::delay(100);
+			pros::delay(200);
 
 			break;
 		}
