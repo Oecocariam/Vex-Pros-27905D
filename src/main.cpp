@@ -118,9 +118,9 @@ void opcontrol();
 			
 			case true:
 
-			wingLeft.move_relative(90*wingState, 1000);
+			wingLeft.move_relative(180*wingState, 1000);
 			wingState *= -1;
-			pros::delay(10);
+			pros::delay(100);
 
 			break;
 		}
