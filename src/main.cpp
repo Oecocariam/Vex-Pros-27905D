@@ -84,7 +84,7 @@ void opcontrol();
 	pros::Motor right1 (18, MOTOR_GEARSET_18, false); 
 	pros::Motor right2 (20, MOTOR_GEARSET_18, false); 
 
-	pros::Motor wingLeft (6, MOTOR_GEARSET_18, false);
+	pros::Motor wingLeft (7, MOTOR_GEARSET_36, false);
 	pros::Motor wingRight (1, MOTOR_GEARSET_18, false);
 
 	int wingState = 1;
