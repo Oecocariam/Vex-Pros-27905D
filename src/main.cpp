@@ -115,12 +115,14 @@ void opcontrol();
 
 		switch(master.get_digital(DIGITAL_A)) {
 
-				
-
+			
+			case true:
 
 			wingLeft.move_relative(90*wingState, 1000);
 
 			wingState *= -1;
+
+			break;
 		}
 	}
 }
