@@ -118,7 +118,7 @@ void opcontrol();
 			
 			case true:
 
-			wingRight.move_relative(180*wingState, 1000);
+			wingRight.move_relative(-180*wingState, 1000);
 			wingLeft.move_relative(180*wingState, 1000);
 			wingState *= -1;
 			pros::delay(200);
