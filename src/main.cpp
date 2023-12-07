@@ -79,10 +79,10 @@ void opcontrol() {
 void opcontrol();
 	pros::Controller master (CONTROLLER_MASTER);
 
-	pros::Motor left1 (9, MOTOR_GEARSET_18, false);
-	pros::Motor left2 (10, MOTOR_GEARSET_18, false); 
-	pros::Motor right1 (18, MOTOR_GEARSET_18, false); 
-	pros::Motor right2 (20, MOTOR_GEARSET_18, false); 
+	pros::Motor left1 (18, MOTOR_GEARSET_18, false);
+	pros::Motor left2 (20, MOTOR_GEARSET_18, false); 
+	pros::Motor right1 (9, MOTOR_GEARSET_18, false); 
+	pros::Motor right2 (10, MOTOR_GEARSET_18, false); 
 
 	pros::Motor wingLeft (7, MOTOR_GEARSET_36, false);
 	pros::Motor wingRight (1, MOTOR_GEARSET_18, false);
