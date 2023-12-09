@@ -97,11 +97,11 @@ void opcontrol();
 	while (true) {
 		
 
-		int left1Control = (master.get_analog(ANALOG_LEFT_Y))-(0.75*master.get_analog(ANALOG_LEFT_X));
-		int left2Control = (master.get_analog(ANALOG_LEFT_Y))-(0.75*master.get_analog(ANALOG_LEFT_X));
+		int left1Control = (master.get_analog(ANALOG_LEFT_Y))-(0.5*master.get_analog(ANALOG_LEFT_X));
+		int left2Control = (master.get_analog(ANALOG_LEFT_Y))-(0.5*master.get_analog(ANALOG_LEFT_X));
 
-		int right1Control = (-master.get_analog(ANALOG_LEFT_Y))-(0.75*master.get_analog(ANALOG_LEFT_X));
-		int right2Control = (-master.get_analog(ANALOG_LEFT_Y))-(0.75*master.get_analog(ANALOG_LEFT_X));
+		int right1Control = (-master.get_analog(ANALOG_LEFT_Y))-(0.5*master.get_analog(ANALOG_LEFT_X));
+		int right2Control = (-master.get_analog(ANALOG_LEFT_Y))-(0.5*master.get_analog(ANALOG_LEFT_X));
 
 
 		left1.move(left1Control);
