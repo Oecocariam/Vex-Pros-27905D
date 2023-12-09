@@ -58,7 +58,7 @@ void competition_initialize() {}
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-void autonomous() {}
+void autonomous() {
 
 /**
  * Runs the operator control code. This function will be started in its own task
@@ -73,6 +73,28 @@ void autonomous() {}
  * operator control task will be stopped. Re-enabling the robot will restart the
  * task, not resume it from where it left off.
  */
+
+	pros::Controller master (CONTROLLER_MASTER);
+
+	pros::Motor left1 (18, MOTOR_GEARSET_18, false);
+	pros::Motor left2 (20, MOTOR_GEARSET_18, false); 
+	pros::Motor right1 (9, MOTOR_GEARSET_18, false); 
+	pros::Motor right2 (10, MOTOR_GEARSET_18, false); 
+
+	pros::Motor wingLeft (7, MOTOR_GEARSET_36, false);
+	pros::Motor wingRight (1, MOTOR_GEARSET_36, false);
+
+	while (true) {
+	
+		left1.move(127);
+		left2.move(127);
+
+		right1.move(127);
+		right2.move(127);
+	}
+
+}
+
 void opcontrol() {
 
 
