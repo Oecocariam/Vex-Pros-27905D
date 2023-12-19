@@ -14,11 +14,11 @@ void forward (double distance ) {
 
 		double turns = distance/1/*double(3.1415)*/;
 
-		left1.move_relative(360*turns, 200);
-		left2.move_relative(360*turns, 200);
+		left1.move_relative(360*turns, 60);
+		left2.move_relative(360*turns, 60);
 
-		right1.move_relative(-360*turns, 200);
-		right2.move_relative(-360*turns, 200);
+		right1.move_relative(-360*turns, 60);
+		right2.move_relative(-360*turns, 60);
 }
 /**
  * A callback function for LLEMU's center button.
@@ -93,7 +93,7 @@ void autonomous() {
  * operator control task will be stopped. Re-enabling the robot will restart the
  * task, not resume it from where it left off.
  */
-		forward(3);
+		forward(1);
 	
 
 }
