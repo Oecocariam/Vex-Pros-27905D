@@ -1,5 +1,25 @@
 #include "main.h"
 
+	pros::Controller master (CONTROLLER_MASTER);
+
+	pros::Motor left1 (18, MOTOR_GEARSET_18, false);
+	pros::Motor left2 (20, MOTOR_GEARSET_18, false); 
+	pros::Motor right1 (9, MOTOR_GEARSET_18, false); 
+	pros::Motor right2 (10, MOTOR_GEARSET_18, false); 
+
+	pros::Motor wingLeft (7, MOTOR_GEARSET_36, false);
+	pros::Motor wingRight (1, MOTOR_GEARSET_36, false);
+
+void forward (double distance ) {
+
+		double turns = distance/double(3.1415);
+
+		left1.move_relative(360*turns, 200);
+		left2.move_relative(360*turns, 200);
+
+		right1.move_relative(-360*turns, 200);
+		right2.move_relative(-360*turns, 200);
+}
 /**
  * A callback function for LLEMU's center button.
  *
@@ -74,23 +94,12 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 
-	pros::Controller master (CONTROLLER_MASTER);
 
-	pros::Motor left1 (18, MOTOR_GEARSET_18, false);
-	pros::Motor left2 (20, MOTOR_GEARSET_18, false); 
-	pros::Motor right1 (9, MOTOR_GEARSET_18, false); 
-	pros::Motor right2 (10, MOTOR_GEARSET_18, false); 
-
-	pros::Motor wingLeft (7, MOTOR_GEARSET_36, false);
-	pros::Motor wingRight (1, MOTOR_GEARSET_36, false);
 
 	while (true) {
 	
-		left1.move(127);
-		left2.move(127);
+		forward(3);
 
-		right1.move(127);
-		right2.move(127);
 	}
 
 }
