@@ -12,7 +12,7 @@
 
 void forward (double distance ) {
 
-		double turns = distance/double(3.1415);
+		double turns = distance/1/*double(3.1415)*/;
 
 		left1.move_relative(360*turns, 200);
 		left2.move_relative(360*turns, 200);
