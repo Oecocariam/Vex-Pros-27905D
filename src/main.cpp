@@ -12,9 +12,9 @@
 	pros::Motor wingLeft (7, MOTOR_GEARSET_36, false);
 	pros::Motor wingRight (1, MOTOR_GEARSET_36, false);
 
-void forward (double distance ) {
+void drive (double distance ) {
 
-		double turns = distance/1/*double(3.1415)*/;
+		double turns = distance/double(3.1415)*int(10);
 
 		left1.move_relative(360*turns, 200);
 		left2.move_relative(360*turns, 200);
@@ -95,7 +95,7 @@ void autonomous() {
  * operator control task will be stopped. Re-enabling the robot will restart the
  * task, not resume it from where it left off.
  */
-		forward(200);
+		drive(200);
 	
 
 }
