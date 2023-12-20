@@ -1,17 +1,13 @@
 #include "main.h"
 
-	typedef enum motor_encoder_units_e {
 
-		e_motor_encoder_degrees = 0,
-
-	} motor_encoder_units_e;
 
 	pros::Controller master (CONTROLLER_MASTER);
 
-	pros::Motor left1 (18, MOTOR_GEARSET_18, false);
-	pros::Motor left2 (20, MOTOR_GEARSET_18, false); 
-	pros::Motor right1 (9, MOTOR_GEARSET_18, false); 
-	pros::Motor right2 (10, MOTOR_GEARSET_18, false); 
+	pros::Motor left1 (18, MOTOR_GEARSET_18, false, MOTOR_ENCODER_DEGREES);
+	pros::Motor left2 (20, MOTOR_GEARSET_18, false, MOTOR_ENCODER_DEGREES); 
+	pros::Motor right1 (9, MOTOR_GEARSET_18, false, MOTOR_ENCODER_DEGREES); 
+	pros::Motor right2 (10, MOTOR_GEARSET_18, false, MOTOR_ENCODER_DEGREES); 
 
 	pros::Motor wingLeft (7, MOTOR_GEARSET_36, false);
 	pros::Motor wingRight (1, MOTOR_GEARSET_36, false);
