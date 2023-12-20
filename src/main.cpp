@@ -6,8 +6,8 @@
 
 	pros::Motor left1 (18, MOTOR_GEARSET_18, false, MOTOR_ENCODER_DEGREES);
 	pros::Motor left2 (20, MOTOR_GEARSET_18, false, MOTOR_ENCODER_DEGREES); 
-	pros::Motor right1 (9, MOTOR_GEARSET_18, false, MOTOR_ENCODER_DEGREES); 
-	pros::Motor right2 (10, MOTOR_GEARSET_18, false, MOTOR_ENCODER_DEGREES); 
+	pros::Motor right1 (9, MOTOR_GEARSET_18, true, MOTOR_ENCODER_DEGREES); 
+	pros::Motor right2 (10, MOTOR_GEARSET_18, true, MOTOR_ENCODER_DEGREES); 
 
 	pros::Motor wingLeft (7, MOTOR_GEARSET_36, false);
 	pros::Motor wingRight (1, MOTOR_GEARSET_36, false);
@@ -16,11 +16,11 @@ void forward (double distance ) {
 
 		double turns = distance/1/*double(3.1415)*/;
 
-		left1.move_relative(360*turns, 60);
-		left2.move_relative(360*turns, 60);
+		left1.move_relative(360*turns, 200);
+		left2.move_relative(360*turns, 200);
 
-		right1.move_relative(-360*turns, 60);
-		right2.move_relative(-360*turns, 60);
+		right1.move_relative(360*turns, 200);
+		right2.move_relative(360*turns, 200);
 }
 /**
  * A callback function for LLEMU's center button.
@@ -127,8 +127,8 @@ void opcontrol();
 		int left1Control = (master.get_analog(ANALOG_LEFT_Y))-(0.5*master.get_analog(ANALOG_LEFT_X));
 		int left2Control = (master.get_analog(ANALOG_LEFT_Y))-(0.5*master.get_analog(ANALOG_LEFT_X));
 
-		int right1Control = (-master.get_analog(ANALOG_LEFT_Y))-(0.5*master.get_analog(ANALOG_LEFT_X));
-		int right2Control = (-master.get_analog(ANALOG_LEFT_Y))-(0.5*master.get_analog(ANALOG_LEFT_X));
+		int right1Control = (master.get_analog(ANALOG_LEFT_Y))-(0.5*master.get_analog(ANALOG_LEFT_X));
+		int right2Control = (master.get_analog(ANALOG_LEFT_Y))-(0.5*master.get_analog(ANALOG_LEFT_X));
 
 
 		left1.move(left1Control);
