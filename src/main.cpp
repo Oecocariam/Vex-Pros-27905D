@@ -95,7 +95,7 @@ void autonomous() {
  * operator control task will be stopped. Re-enabling the robot will restart the
  * task, not resume it from where it left off.
  */
-		drive(200);
+		drive(80);
 	
 
 }
@@ -145,8 +145,8 @@ void opcontrol();
 			
 			case true:
 
-			wingRight.move_relative(-450*wingState, 1000);
-			wingLeft.move_relative(450*wingState, 1000);
+			wingRight.move_relative(-90*wingState, 200);
+			wingLeft.move_relative(90*wingState, 200);
 			wingState *= -1;
 			pros::delay(200);
 
