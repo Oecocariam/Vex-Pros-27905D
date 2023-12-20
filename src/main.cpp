@@ -1,5 +1,11 @@
 #include "main.h"
 
+	typedef enum motor_encoder_units_e {
+
+		e_motor_encoder_degrees = 0,
+
+	} motor_encoder_units_e;
+
 	pros::Controller master (CONTROLLER_MASTER);
 
 	pros::Motor left1 (18, MOTOR_GEARSET_18, false);
