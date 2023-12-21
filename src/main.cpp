@@ -16,11 +16,11 @@ void drive (double distance ) {
 
 		double turns = distance/(double(3.1415)*int(10));
 
-		left1.move_relative(360*turns, 200);
-		left2.move_relative(360*turns, 200);
+		left1.move_relative(360*turns, 50);
+		left2.move_relative(360*turns, 50);
 
-		right1.move_relative(360*turns, 200);
-		right2.move_relative(360*turns, 200);
+		right1.move_relative(360*turns, 50);
+		right2.move_relative(360*turns, 50);
 }
 /**
  * A callback function for LLEMU's center button.
@@ -108,8 +108,8 @@ void opcontrol();
 
 	pros::Motor left1 (18, MOTOR_GEARSET_18, false);
 	pros::Motor left2 (20, MOTOR_GEARSET_18, false); 
-	pros::Motor right1 (9, MOTOR_GEARSET_18, false); 
-	pros::Motor right2 (10, MOTOR_GEARSET_18, false); 
+	pros::Motor right1 (9, MOTOR_GEARSET_18, true); 
+	pros::Motor right2 (10, MOTOR_GEARSET_18, true); 
 
 	pros::Motor wingLeft (7, MOTOR_GEARSET_36, false);
 	pros::Motor wingRight (1, MOTOR_GEARSET_36, true);
