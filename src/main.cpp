@@ -112,7 +112,7 @@ void opcontrol();
 	pros::Motor right2 (10, MOTOR_GEARSET_18, false); 
 
 	pros::Motor wingLeft (7, MOTOR_GEARSET_36, false);
-	pros::Motor wingRight (1, MOTOR_GEARSET_36, false);
+	pros::Motor wingRight (1, MOTOR_GEARSET_36, true);
 
 	int wingState = 1;
 
@@ -145,7 +145,7 @@ void opcontrol();
 			
 			case true:
 
-			wingRight.move_relative(-90*wingState, 200);
+			wingRight.move_relative(90*wingState, 200);
 			wingLeft.move_relative(90*wingState, 200);
 			wingState *= -1;
 			pros::delay(200);
