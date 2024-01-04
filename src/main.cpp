@@ -121,7 +121,7 @@ void opcontrol();
 	pros::Motor left1 (17, MOTOR_GEARSET_18, false);
 	pros::Motor left2 (11, MOTOR_GEARSET_18, false); 
 	pros::Motor right1 (1, MOTOR_GEARSET_18, true); 
-	pros::Motor right2 (10, MOTOR_GEARSET_18, false); 
+	pros::Motor right2 (10, MOTOR_GEARSET_18, true); 
 
 	pros::Motor wingLeft (7, MOTOR_GEARSET_36, false);
 	pros::Motor wingRight (1, MOTOR_GEARSET_36, true);
