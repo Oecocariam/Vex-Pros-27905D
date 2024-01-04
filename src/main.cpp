@@ -22,6 +22,18 @@ void drive (double distance ) {
 		right1.move_relative(360*turns, 50);
 		right2.move_relative(360*turns, 50);
 }
+void turn (double robot_degrees ) {
+
+double motor_degrees = robot_degrees;
+
+	left1.move_relative(motor_degrees, 50);
+	left2.move_relative(motor_degrees, 50);
+
+	right1.move_relative(motor_degrees, 50);
+	right2.move_relative(motor_degrees, 50);
+
+
+}
 /**
  * A callback function for LLEMU's center button.
  *
