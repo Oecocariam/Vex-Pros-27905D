@@ -118,8 +118,8 @@ void opcontrol() {
 void opcontrol();
 	pros::Controller master (CONTROLLER_MASTER);
 
-	pros::Motor left1 (18, MOTOR_GEARSET_18, false);
-	pros::Motor left2 (20, MOTOR_GEARSET_18, false); 
+	pros::Motor left1 (17, MOTOR_GEARSET_18, false);
+	pros::Motor left2 (11, MOTOR_GEARSET_18, false); 
 	pros::Motor right1 (9, MOTOR_GEARSET_18, false); 
 	pros::Motor right2 (10, MOTOR_GEARSET_18, false); 
 
@@ -140,7 +140,7 @@ void opcontrol();
 		int left2Control = (master.get_analog(ANALOG_LEFT_Y))-(0.5*master.get_analog(ANALOG_LEFT_X));
 
 		int right1Control = (-master.get_analog(ANALOG_LEFT_Y))-(0.5*master.get_analog(ANALOG_LEFT_X));
-		int right2Control = (master.get_analog(ANALOG_LEFT_Y))-(0.5*master.get_analog(ANALOG_LEFT_X));
+		int right2Control = (-master.get_analog(ANALOG_LEFT_Y))-(0.5*master.get_analog(ANALOG_LEFT_X));
 
 
 		left1.move(left1Control);
