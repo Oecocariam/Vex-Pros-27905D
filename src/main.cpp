@@ -13,7 +13,9 @@
 
 void drive (double distance ) {
 
-		double turns = distance/(double(3.1415)*int(10));
+		double efficiency_modifier =2.5;
+
+		double turns = distance*efficiency_modifier/(double(3.1415)*int(10));
 
 		left1.move_relative(360*turns, 50);
 		left2.move_relative(360*turns, 50);
