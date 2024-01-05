@@ -1,16 +1,15 @@
 #include "main.h"
 
+		pros::Controller master (CONTROLLER_MASTER);
 
-
-	pros::Controller master (CONTROLLER_MASTER);
-
-	pros::Motor left1 (18, MOTOR_GEARSET_18, false, MOTOR_ENCODER_DEGREES);
-	pros::Motor left2 (20, MOTOR_GEARSET_18, false, MOTOR_ENCODER_DEGREES); 
-	pros::Motor right1 (9, MOTOR_GEARSET_18, true, MOTOR_ENCODER_DEGREES); 
-	pros::Motor right2 (10, MOTOR_GEARSET_18, true, MOTOR_ENCODER_DEGREES); 
+	pros::Motor left1 (17, MOTOR_GEARSET_18, false);
+	pros::Motor left2 (11, MOTOR_GEARSET_18, false); 
+	pros::Motor right1 (1, MOTOR_GEARSET_18, true); 
+	pros::Motor right2 (10, MOTOR_GEARSET_18, true); 
 
 	pros::Motor wingLeft (7, MOTOR_GEARSET_36, false);
-	pros::Motor wingRight (1, MOTOR_GEARSET_36, false);
+	pros::Motor wingRight (1, MOTOR_GEARSET_36, true);
+
 
 void drive (double distance ) {
 
@@ -116,15 +115,7 @@ void opcontrol() {
 
 
 void opcontrol();
-	pros::Controller master (CONTROLLER_MASTER);
 
-	pros::Motor left1 (17, MOTOR_GEARSET_18, false);
-	pros::Motor left2 (11, MOTOR_GEARSET_18, false); 
-	pros::Motor right1 (1, MOTOR_GEARSET_18, true); 
-	pros::Motor right2 (10, MOTOR_GEARSET_18, true); 
-
-	pros::Motor wingLeft (7, MOTOR_GEARSET_36, false);
-	pros::Motor wingRight (1, MOTOR_GEARSET_36, true);
 
 	int wingState = 1;
 
