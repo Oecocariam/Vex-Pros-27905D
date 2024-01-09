@@ -11,7 +11,7 @@
 	pros::Motor wingRight (1, MOTOR_GEARSET_36, true);
 
 
-void drive (double distance, double speed ) {
+void drive (double distance, double speed ) { 
 
 		double efficiency_modifier =2.5;
 
