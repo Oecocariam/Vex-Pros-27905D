@@ -135,11 +135,9 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 
-
+	turn(8000, 3600 );
 
 //	drive(80, 25 );
-
-	turn(8000, 3600 );
 
 }
 
