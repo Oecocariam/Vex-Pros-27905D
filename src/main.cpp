@@ -110,7 +110,7 @@ void autonomous() {
  */
 		drive(80, 3600 );
 	
-		turn(5 );
+	//	turn(5 );
 
 }
 
