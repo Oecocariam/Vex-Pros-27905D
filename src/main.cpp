@@ -26,8 +26,7 @@ void drive (double distance, double speed ) {
 
 		averageMotorPosition = (left1.get_position() + left2.get_position()+ right1.get_position() + right2.get_position())/4;
 
-	while ((!((averageMotorPosition <= degreesTurned+5) && (averageMotorPosition >= degreesTurned-5)))|| 
-	(left1.is_stopped() && left2.is_stopped() && right1.is_stopped() && right2.is_stopped())) {
+	while (left1.is_stopped() && left2.is_stopped() && right1.is_stopped() && right2.is_stopped()) {
     	// Continue running this loop as long as the motor is not within +-5 units of its goal
     	pros::delay(2);
 		averageMotorPosition = (left1.get_position() + left2.get_position()+ right1.get_position() + right2.get_position())/4;
@@ -51,8 +50,7 @@ double motor_degrees = robot_degrees;
 
 	averageMotorPosition = (left1.get_position() + left2.get_position()+ right1.get_position() + right2.get_position())/4;
 
-	while ((!((averageMotorPosition <= motor_degrees+5) && (averageMotorPosition >= motor_degrees-5)))|| 
-	(left1.is_stopped() && left2.is_stopped() && right1.is_stopped() && right2.is_stopped())) {
+	while (left1.is_stopped() && left2.is_stopped() && right1.is_stopped() && right2.is_stopped()) {
 		
     	// Continue running this loop as long as the motor is not within +-5 units of its goal
     	pros::delay(2);
@@ -150,7 +148,7 @@ void opcontrol();
 	int wingState = 1;
 
 	
-//	Ah, yes, the simple comment, definition of piston, controller , and motors
+//	definition of piston, controller , and motors
 
 		pros::lcd::initialize();
 
