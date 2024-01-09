@@ -108,17 +108,19 @@ void autonomous() {
  * operator control task will be stopped. Re-enabling the robot will restart the
  * task, not resume it from where it left off.
  */
-		drive(80, 3600 );
-	
+	drive(80, 3600 );
+
+	while(!left1.is_stopped() ){
+		pros::delay(1);
+	}
+
 	//	turn(5 );
 
 }
 
 void opcontrol() {
 
-while(!left1.is_stopped() ){
-	pros::delay(1);
-}
+
 
 void opcontrol();
 
