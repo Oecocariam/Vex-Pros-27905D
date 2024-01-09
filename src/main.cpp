@@ -45,8 +45,8 @@ double motor_degrees = robot_degrees;
 	left1.move_relative(motor_degrees, speed);
 	left2.move_relative(motor_degrees, speed);
 
-	right1.move_relative(-motor_degrees, speed);
-	right2.move_relative(-motor_degrees, speed);
+	right1.move_relative(motor_degrees, speed);
+	right2.move_relative(motor_degrees, speed);
 
 	averageMotorPosition = (left1.get_position() + left2.get_position()+ right1.get_position() + right2.get_position())/4;
 
