@@ -10,7 +10,11 @@
 	pros::Motor wingLeft (7, MOTOR_GEARSET_36, false);
 	pros::Motor wingRight (1, MOTOR_GEARSET_36, true);
 
-double averageMotorPosition = (left1.get_position() + left2.get_position()+ right1.get_position() + right2.get_position())/4;
+
+double averageMotorVoltage(){
+	double x = (left1.get_voltage() + left2.get_voltage() + right1.get_voltage() + right2.get_voltage())/4;
+	return x;
+}
 
 void drive (double distance, double speed ) { 
 
@@ -24,18 +28,10 @@ void drive (double distance, double speed ) {
 		right1.move_relative(degreesTurned, speed);
 		right2.move_relative(degreesTurned, speed);	
 
-		averageMotorPosition = (left1.get_position() + left2.get_position()+ right1.get_position() + right2.get_position())/4;
-
-	while (left1.is_stopped() && left2.is_stopped() && right1.is_stopped() && right2.is_stopped()) {
+	while (averageMotorVoltage()>5000) {
     	// Continue running this loop as long as the motor is not within +-5 units of its goal
     	pros::delay(2);
-		averageMotorPosition = (left1.get_position() + left2.get_position()+ right1.get_position() + right2.get_position())/4;
 	
-//	left1.set_zero_position(left1.get_position());
-//	left2.set_zero_position(left2.get_position());
-
-//	right1.set_zero_position(right1.get_position());
-//	right1.set_zero_position(right2.get_position());
 	}
 }
 void turn (double robot_degrees, double speed) {
@@ -48,14 +44,10 @@ double motor_degrees = robot_degrees;
 	right1.move_relative(-motor_degrees, speed);
 	right2.move_relative(-motor_degrees, speed);
 
-	averageMotorPosition = (left1.get_position() + left2.get_position()+ right1.get_position() + right2.get_position())/4;
-
-	while (left1.is_stopped() && left2.is_stopped() && right1.is_stopped() && right2.is_stopped()) {
+	while (averageMotorVoltage()>5000) {
 		
     	// Continue running this loop as long as the motor is not within +-5 units of its goal
     	pros::delay(2);
-		averageMotorPosition = (abs(left1.get_position()) + abs(left2.get_position())+ abs(right1.get_position()) + abs(right2.get_position()))/4;
-
 	}
 }
 
