@@ -15,13 +15,21 @@ void drive (double distance, double speed ) {
 
 		double efficiency_modifier =2.5;
 
-		double turns = distance*efficiency_modifier/(double(3.1415)*int(10));
+		double degreesTurned = (distance*efficiency_modifier/(double(3.1415)*int(10)))*360;
 
-		left1.move_relative(360*turns, speed);
-		left2.move_relative(360*turns, speed);
+		left1.move_relative(degreesTurned, speed);
+		left2.move_relative(degreesTurned, speed);
 
-		right1.move_relative(360*turns, speed);
-		right2.move_relative(360*turns, speed);
+		right1.move_relative(degreesTurned, speed);
+		right2.move_relative(degreesTurned, speed);
+
+	double averageMotorPosition = (left1.get_position() + left2.get_position()+ right1.get_position() + right2.get_position())/4;
+
+	while (!((averageMotorPosition < degreesTurned) && (averageMotorPosition > 95))) {
+    	// Continue running this loop as long as the motor is not within +-5 units of its goal
+    	pros::delay(2);
+		averageMotorPosition = (left1.get_position() + left2.get_position()+ right1.get_position() + right2.get_position())/4;
+	}
 }
 void turn (double robot_degrees ) {
 
@@ -109,10 +117,6 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 	drive(80, 3600 );
-
-	while(!left1.is_stopped() ){
-		pros::delay(1);
-	}
 
 	turn(180 );
 
