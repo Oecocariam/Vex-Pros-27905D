@@ -46,6 +46,13 @@ double motor_degrees = robot_degrees;
 		averageMotorPosition = (abs(left1.get_position()) + abs(left2.get_position())+ abs(right1.get_position()) + abs(right2.get_position()))/4;
 
 	}
+
+	left1.set_zero_position(left1.get_position());
+	left2.set_zero_position(left2.get_position());
+
+	right1.set_zero_position(right1.get_position());
+	right1.set_zero_position(right2.get_position());
+
 }
 /**
  * A callback function for LLEMU's center button.
