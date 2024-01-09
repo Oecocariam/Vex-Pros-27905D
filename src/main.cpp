@@ -25,7 +25,7 @@ void drive (double distance, double speed ) {
 
 	double averageMotorPosition = (left1.get_position() + left2.get_position()+ right1.get_position() + right2.get_position())/4;
 
-	while (!((averageMotorPosition < degreesTurned) && (averageMotorPosition > 95))) {
+	while (!((averageMotorPosition < degreesTurned+5) && (averageMotorPosition > degreesTurned-5))) {
     	// Continue running this loop as long as the motor is not within +-5 units of its goal
     	pros::delay(2);
 		averageMotorPosition = (left1.get_position() + left2.get_position()+ right1.get_position() + right2.get_position())/4;
