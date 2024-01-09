@@ -116,6 +116,9 @@ void autonomous() {
 
 void opcontrol() {
 
+while(!left1.is_stopped() ){
+	pros::delay(1);
+}
 
 void opcontrol();
 
