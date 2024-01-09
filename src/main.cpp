@@ -28,6 +28,12 @@ void drive (double distance, double speed ) {
     	// Continue running this loop as long as the motor is not within +-5 units of its goal
     	pros::delay(2);
 		averageMotorPosition = (left1.get_position() + left2.get_position()+ right1.get_position() + right2.get_position())/4;
+	
+	left1.set_zero_position(left1.get_position());
+	left2.set_zero_position(left2.get_position());
+
+	right1.set_zero_position(right1.get_position());
+	right1.set_zero_position(right2.get_position());
 	}
 }
 void turn (double robot_degrees, double speed) {
