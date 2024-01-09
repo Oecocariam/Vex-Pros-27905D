@@ -37,13 +37,13 @@ double motor_degrees = robot_degrees;
 	left1.move_relative(motor_degrees, 50);
 	left2.move_relative(motor_degrees, 50);
 
-	right1.move_relative(motor_degrees, 50);
-	right2.move_relative(motor_degrees, 50);
+	right1.move_relative(-motor_degrees, 50);
+	right2.move_relative(-motor_degrees, 50);
 
 	while (!((averageMotorPosition < motor_degrees+5) && (averageMotorPosition > motor_degrees-5))) {
     	// Continue running this loop as long as the motor is not within +-5 units of its goal
     	pros::delay(2);
-		averageMotorPosition = (left1.get_position() + left2.get_position()+ right1.get_position() + right2.get_position())/4;
+		averageMotorPosition = (abs(left1.get_position()) + abs(left2.get_position())+ abs(right1.get_position()) + abs(right2.get_position()))/4;
 
 	}
 }
