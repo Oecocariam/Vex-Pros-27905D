@@ -10,6 +10,7 @@
 	pros::Motor wingLeft (7, MOTOR_GEARSET_36, false);
 	pros::Motor wingRight (1, MOTOR_GEARSET_36, true);
 
+double averageMotorPosition = (left1.get_position() + left2.get_position()+ right1.get_position() + right2.get_position())/4;
 
 void drive (double distance, double speed ) { 
 
@@ -21,9 +22,7 @@ void drive (double distance, double speed ) {
 		left2.move_relative(degreesTurned, speed);
 
 		right1.move_relative(degreesTurned, speed);
-		right2.move_relative(degreesTurned, speed);
-
-	double averageMotorPosition = (left1.get_position() + left2.get_position()+ right1.get_position() + right2.get_position())/4;
+		right2.move_relative(degreesTurned, speed);	
 
 	while (!((averageMotorPosition < degreesTurned+5) && (averageMotorPosition > degreesTurned-5))) {
     	// Continue running this loop as long as the motor is not within +-5 units of its goal
@@ -41,7 +40,12 @@ double motor_degrees = robot_degrees;
 	right1.move_relative(motor_degrees, 50);
 	right2.move_relative(motor_degrees, 50);
 
+	while (!((averageMotorPosition < motor_degrees+5) && (averageMotorPosition > motor_degrees-5))) {
+    	// Continue running this loop as long as the motor is not within +-5 units of its goal
+    	pros::delay(2);
+		averageMotorPosition = (left1.get_position() + left2.get_position()+ right1.get_position() + right2.get_position())/4;
 
+	}
 }
 /**
  * A callback function for LLEMU's center button.
