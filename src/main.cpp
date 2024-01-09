@@ -88,12 +88,6 @@ void initialize() {
 	pros::lcd::set_text(1, "Hello PROS User!");
 
 	pros::lcd::register_btn1_cb(on_center_button);
-
-	left1.move_relative(-360, 50);
-	left2.move_relative(-360, 50);
-
-	right1.move_relative(-360, 50);
-	right2.move_relative(-360, 50);
 }
 
 /**
@@ -140,9 +134,17 @@ void autonomous() {
  * operator control task will be stopped. Re-enabling the robot will restart the
  * task, not resume it from where it left off.
  */
-	drive(80, 25 );
 
-	turn(8000, 3600 );
+
+	left1.move_relative(-360, 50);
+	left2.move_relative(-360, 50);
+
+	right1.move_relative(-360, 50);
+	right2.move_relative(-360, 50);
+
+//	drive(80, 25 );
+
+//	turn(8000, 3600 );
 
 }
 
