@@ -114,7 +114,7 @@ void autonomous() {
 		pros::delay(1);
 	}
 
-	//	turn(5 );
+	turn(180 );
 
 }
 
