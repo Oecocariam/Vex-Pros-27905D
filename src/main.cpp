@@ -136,15 +136,10 @@ void autonomous() {
  */
 
 
-	left1.move_relative(-360, 50);
-	left2.move_relative(-360, 50);
-
-	right1.move_relative(-360, 50);
-	right2.move_relative(-360, 50);
 
 //	drive(80, 25 );
 
-//	turn(8000, 3600 );
+	turn(8000, 3600 );
 
 }
 
