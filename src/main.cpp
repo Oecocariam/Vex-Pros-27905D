@@ -120,9 +120,9 @@ void autonomous() {
  * operator control task will be stopped. Re-enabling the robot will restart the
  * task, not resume it from where it left off.
  */
-	drive(80, 3600 );
+	drive(80, 50 );
 
-	turn(180, 3600 );
+	turn(180, 50 );
 
 }
 
