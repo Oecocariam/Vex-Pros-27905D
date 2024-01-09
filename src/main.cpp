@@ -140,7 +140,7 @@ void autonomous() {
  */
 	drive(80, 25 );
 
-	turn(180, 3600 );
+	turn(8000, 3600 );
 
 }
 
