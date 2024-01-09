@@ -37,8 +37,8 @@ double motor_degrees = robot_degrees;
 	left1.move_relative(motor_degrees, speed);
 	left2.move_relative(motor_degrees, speed);
 
-	right1.move_relative(-motor_degrees, speed);
-	right2.move_relative(-motor_degrees, speed);
+	right1.move_relative(motor_degrees, speed);
+	right2.move_relative(motor_degrees, speed);
 
 	while (!((averageMotorPosition < motor_degrees+5) && (averageMotorPosition > motor_degrees-5))) {
     	// Continue running this loop as long as the motor is not within +-5 units of its goal
