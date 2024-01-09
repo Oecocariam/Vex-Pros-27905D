@@ -29,11 +29,11 @@ void drive (double distance, double speed ) {
     	pros::delay(2);
 		averageMotorPosition = (left1.get_position() + left2.get_position()+ right1.get_position() + right2.get_position())/4;
 	
-	left1.set_zero_position(left1.get_position());
-	left2.set_zero_position(left2.get_position());
+//	left1.set_zero_position(left1.get_position());
+//	left2.set_zero_position(left2.get_position());
 
-	right1.set_zero_position(right1.get_position());
-	right1.set_zero_position(right2.get_position());
+//	right1.set_zero_position(right1.get_position());
+//	right1.set_zero_position(right2.get_position());
 	}
 }
 void turn (double robot_degrees, double speed) {
@@ -53,13 +53,14 @@ double motor_degrees = robot_degrees;
 
 	}
 
-	left1.set_zero_position(left1.get_position());
-	left2.set_zero_position(left2.get_position());
+//	left1.set_zero_position(left1.get_position());
+//	left2.set_zero_position(left2.get_position());
 
-	right1.set_zero_position(right1.get_position());
-	right1.set_zero_position(right2.get_position());
+//	right1.set_zero_position(right1.get_position());
+//	right1.set_zero_position(right2.get_position());
 
 }
+
 /**
  * A callback function for LLEMU's center button.
  *
