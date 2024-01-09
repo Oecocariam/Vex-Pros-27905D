@@ -24,6 +24,8 @@ void drive (double distance, double speed ) {
 		right1.move_relative(degreesTurned, speed);
 		right2.move_relative(degreesTurned, speed);	
 
+		averageMotorPosition = (left1.get_position() + left2.get_position()+ right1.get_position() + right2.get_position())/4;
+
 	while (!((averageMotorPosition < degreesTurned+5) && (averageMotorPosition > degreesTurned-5))) {
     	// Continue running this loop as long as the motor is not within +-5 units of its goal
     	pros::delay(2);
@@ -45,6 +47,8 @@ double motor_degrees = robot_degrees;
 
 	right1.move_relative(-motor_degrees, speed);
 	right2.move_relative(-motor_degrees, speed);
+
+	averageMotorPosition = (left1.get_position() + left2.get_position()+ right1.get_position() + right2.get_position())/4;
 
 	while (!((averageMotorPosition < motor_degrees+5) && (averageMotorPosition > motor_degrees-5))) {
     	// Continue running this loop as long as the motor is not within +-5 units of its goal
