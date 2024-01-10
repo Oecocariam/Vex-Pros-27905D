@@ -128,7 +128,7 @@ void competition_initialize() {}
 void autonomous() {
 	
 turn(8000, 3600 );
-
+pros::delay(2);
 drive(80, 25);
 
 
