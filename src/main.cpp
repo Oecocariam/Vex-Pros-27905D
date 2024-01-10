@@ -22,6 +22,10 @@ void drive (double distance, double speed ) {
 
 		double degreesTurned = (distance*efficiency_modifier/(double(3.1415)*int(10)))*360;
 
+		pros::delay(2);
+
+		double baseMotorVoltager = averageMotorVoltage();
+
 		left1.move_relative(degreesTurned, speed);
 		left2.move_relative(degreesTurned, speed);
 
@@ -30,13 +34,17 @@ void drive (double distance, double speed ) {
 
 		pros::delay(2);
 
-	while (averageMotorVoltage()>1) {
+	while (averageMotorVoltage()>=baseMotorVoltager) {
     	pros::delay(2);
 	}
 }
 void turn (double robot_degrees, double speed) {
 
 	double motor_degrees = robot_degrees;
+
+	pros::delay(2);
+
+	double baseMotorVoltager = averageMotorVoltage();
 
 	left1.move_relative(motor_degrees, speed);
 	left2.move_relative(motor_degrees, speed);
@@ -46,7 +54,7 @@ void turn (double robot_degrees, double speed) {
 
 	pros::delay(2);
 
-	while (averageMotorVoltage()>1) {
+	while (averageMotorVoltage()>=baseMotorVoltager) {
     	pros::delay(2);
 	}
 }
