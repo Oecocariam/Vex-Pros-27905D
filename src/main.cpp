@@ -32,7 +32,7 @@ void drive (double distance, double speed ) {
 		right1.move_relative(degreesTurned, speed);
 		right2.move_relative(degreesTurned, speed);	
 
-		pros::delay(2);
+		pros::delay(100);
 
 	while (1) {
     	pros::delay(2);
@@ -56,7 +56,7 @@ void turn (double robot_degrees, double speed) {
 	right1.move_relative(-motor_degrees, speed);
 	right2.move_relative(-motor_degrees, speed);
 
-	pros::delay(2);
+	pros::delay(100);
 
 	while (1) {
     	pros::delay(2);
