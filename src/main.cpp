@@ -110,11 +110,10 @@ void competition_initialize() {}
  * from where it left off.
  */
 void autonomous() {
-
 	
 turn(8000, 3600 );
 
-drive(80, 25);
+//drive(80, 25);
 
 
 
