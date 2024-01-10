@@ -44,7 +44,7 @@ double motor_degrees = robot_degrees;
 	right1.move_relative(-motor_degrees, speed);
 	right2.move_relative(-motor_degrees, speed);
 
-	while (averageMotorVoltage()>5000) {
+	while (averageMotorVoltage()>10000) {
 		
     	// Continue running this loop as long as the motor is not within +-5 units of its goal
     	pros::delay(2);
