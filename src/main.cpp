@@ -115,6 +115,12 @@ void competition_initialize() {}
  */
 void autonomous() {
 
+	
+turn(8000, 3600 );
+
+drive(80, 25 );
+
+
 /**
  * Runs the operator control code. This function will be started in its own task
  * with the default priority and stack size whenever the robot is enabled via
@@ -128,11 +134,6 @@ void autonomous() {
  * operator control task will be stopped. Re-enabling the robot will restart the
  * task, not resume it from where it left off.
  */
-
-	turn(8000, 3600 );
-
-	drive(80, 25 );
-
 }
 
 void opcontrol() {
