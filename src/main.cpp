@@ -28,6 +28,8 @@ void drive (double distance, double speed ) {
 		right1.move_relative(degreesTurned, speed);
 		right2.move_relative(degreesTurned, speed);	
 
+		pros::delay(2);
+
 	while (averageMotorVoltage()>1000) {
     	// Continue running this loop as long as the motor is not within +-5 units of its goal
     	pros::delay(2);
@@ -36,13 +38,15 @@ void drive (double distance, double speed ) {
 }
 void turn (double robot_degrees, double speed) {
 
-double motor_degrees = robot_degrees;
+	double motor_degrees = robot_degrees;
 
 	left1.move_relative(motor_degrees, speed);
 	left2.move_relative(motor_degrees, speed);
 
 	right1.move_relative(-motor_degrees, speed);
 	right2.move_relative(-motor_degrees, speed);
+
+	pros::delay(2);
 
 	while (averageMotorVoltage()>1000) {
 		
