@@ -30,7 +30,7 @@ void drive (double distance, double speed ) {
 
 		pros::delay(2);
 
-	while (averageMotorVoltage()>1) {
+	while (averageMotorVoltage()>5) {
     	pros::delay(2);
 	}
 }
@@ -46,7 +46,7 @@ void turn (double robot_degrees, double speed) {
 
 	pros::delay(2);
 
-	while (averageMotorVoltage()>1) {
+	while (averageMotorVoltage()>5) {
     	pros::delay(2);
 	}
 }
