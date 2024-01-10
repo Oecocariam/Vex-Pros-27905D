@@ -12,7 +12,7 @@
 
 
 double averageMotorVoltage(){
-	double x = (left1.get_voltage() + left2.get_voltage() + right1.get_voltage() + right2.get_voltage())/4;
+	double x = (abs(left1.get_voltage()) + abs(left2.get_voltage()) + abs(right1.get_voltage()) + abs(right2.get_voltage()))/4;
 	return x;
 }
 
