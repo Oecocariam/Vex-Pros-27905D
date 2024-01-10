@@ -37,7 +37,7 @@ void drive (double distance, double speed ) {
 	while (1) {
     	pros::delay(2);
 
-		if(averageMotorVoltage()>=baseMotorVoltager){
+		if(averageMotorVoltage()<=baseMotorVoltager){
 			break;
 		}
 	}
@@ -61,7 +61,7 @@ void turn (double robot_degrees, double speed) {
 	while (1) {
     	pros::delay(2);
 
-		if(averageMotorVoltage()>=baseMotorVoltager){
+		if(averageMotorVoltage()<=baseMotorVoltager){
 			break;
 		}
 	}
