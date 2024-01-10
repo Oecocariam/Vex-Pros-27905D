@@ -30,10 +30,8 @@ void drive (double distance, double speed ) {
 
 		pros::delay(2);
 
-	while (averageMotorVoltage()>10) {
-    	// Continue running this loop as long as the motor is not within +-5 units of its goal
+	while (averageMotorVoltage()>1) {
     	pros::delay(2);
-	
 	}
 }
 void turn (double robot_degrees, double speed) {
@@ -48,9 +46,7 @@ void turn (double robot_degrees, double speed) {
 
 	pros::delay(2);
 
-	while (averageMotorVoltage()>10) {
-		
-    	// Continue running this loop as long as the motor is not within +-5 units of its goal
+	while (averageMotorVoltage()>1) {
     	pros::delay(2);
 	}
 }
