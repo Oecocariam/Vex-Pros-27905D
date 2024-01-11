@@ -124,17 +124,9 @@ void competition_initialize() {}
  */
 void autonomous() {
 
-	left1.move_relative(1080, 3600);
-	left2.move_relative(1080, 3600);
-	pros::delay(100);
-	
-	left1.move(0);
-	left2.move(0);
-
-
-//turn(8000, 3600 );
-//pros::delay(2);
-//drive(80, 25 );
+turn(8000, 3600 );
+pros::delay(100);
+drive(80, 25 );
 
 
 
