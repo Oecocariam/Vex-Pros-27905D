@@ -44,7 +44,7 @@ void drive (double distance, double speed ) {
 }
 void turn (double robot_degrees, double speed, int negatation) {
 
-	double motor_degrees = (robot_degrees*0.1361)-(7.667*negatation);
+	double motor_degrees = (robot_degrees/0.1361)-(7.667*negatation);
 
 	double baseMotorVoltager = averageMotorVoltage();
 
