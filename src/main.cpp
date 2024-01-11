@@ -126,7 +126,7 @@ void autonomous() {
 
 turn(90, 600, -1 );
 pros::delay(100);
-//drive(80, 25 );
+drive(80, 25 );
 
 
 
