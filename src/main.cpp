@@ -46,8 +46,6 @@ void turn (double robot_degrees, double speed) {
 
 	double motor_degrees = robot_degrees;
 
-	pros::delay(2);
-
 	double baseMotorVoltager = averageMotorVoltage();
 
 	left1.move_relative(motor_degrees, speed);
@@ -125,10 +123,18 @@ void competition_initialize() {}
  * from where it left off.
  */
 void autonomous() {
+
+	left1.move_relative(1080, 3600);
+	left2.move_relative(1080, 3600);
+	pros::delay(100);
 	
-turn(8000, 3600 );
-pros::delay(2);
-drive(80, 25 );
+	left1.move(0);
+	left2.move(0);
+
+
+//turn(8000, 3600 );
+//pros::delay(2);
+//drive(80, 25 );
 
 
 
