@@ -42,9 +42,9 @@ void drive (double distance, double speed ) {
 		}
 	}
 }
-void turn (double robot_degrees, double speed) {
+void turn (double robot_degrees, double speed, int negatation) {
 
-	double motor_degrees = (robot_degrees*0.1361)-7.667;
+	double motor_degrees = (robot_degrees*0.1361)-(7.667*negatation);
 
 	double baseMotorVoltager = averageMotorVoltage();
 
@@ -124,7 +124,7 @@ void competition_initialize() {}
  */
 void autonomous() {
 
-turn(1800, 600 );
+turn(90, 600, -1 );
 pros::delay(100);
 //drive(80, 25 );
 
