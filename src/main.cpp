@@ -42,6 +42,7 @@ void drive (double distance, double speed ) {
 		}
 	}
 }
+
 void turn (double robot_degrees, double speed, int negatation) {
 
 	double motor_degrees = (robot_degrees/0.1361)-(7.667*negatation);
@@ -124,20 +125,20 @@ void competition_initialize() {}
  */
 void autonomous() {
 
+
+
 drive(80, 3600 );
 pros::delay(100);
-drive(-40, 3600 );
-pros::delay(100);
-drive(40, 2600 );
-pros::delay(100);
-drive(-40, 3600 );
-pros::delay(100);
-drive(40, 2600 );
-pros::delay(100);
-drive(-40, 3600 );
-pros::delay(100);
-drive(40, 2600 );
-pros::delay(100);
+
+for (size_t i = 0; i <= 4; i++)
+{
+	drive(-40, 3600 );
+	pros::delay(100);
+
+	drive(40, 2600 );
+	pros::delay(100);
+}
+
 turn(90, 3600, 1 );
 pros::delay(100);
 drive(80, 3600 );
