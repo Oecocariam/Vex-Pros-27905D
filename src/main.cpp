@@ -20,7 +20,7 @@ void drive (double distance, double speed ) {
 
 		double efficiency_modifier =2.5;
 
-		double degreesTurned = (distance*efficiency_modifier/(double(3.1415)*int(10)))*360;
+		double degreesTurned = (distance*efficiency_modifier/double(31.415))*360;
 
 		pros::delay(2);
 
