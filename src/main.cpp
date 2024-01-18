@@ -176,18 +176,16 @@ void opcontrol();
 	while (true) {
 		
 
-		int left1Control = (master.get_analog(ANALOG_LEFT_Y))+(0.5*master.get_analog(ANALOG_LEFT_X));
-		int left2Control = (master.get_analog(ANALOG_LEFT_Y))+(0.5*master.get_analog(ANALOG_LEFT_X));
+		int leftControl = (master.get_analog(ANALOG_LEFT_Y))+(0.5*master.get_analog(ANALOG_LEFT_X));
 
-		int right1Control = (master.get_analog(ANALOG_LEFT_Y))+(0.5*master.get_analog(ANALOG_LEFT_X));
-		int right2Control = (master.get_analog(ANALOG_LEFT_Y))+(0.5*master.get_analog(ANALOG_LEFT_X));
+		int rightControl = (master.get_analog(ANALOG_LEFT_Y))-(0.5*master.get_analog(ANALOG_LEFT_X));
+		
 
+		left1.move(leftControl);
+		left2.move(leftControl);
 
-		left1.move(left1Control);
-		left2.move(left2Control);
-
-		right1.move(right1Control);
-		right2.move(right2Control);
+		right1.move(rightControl);
+		right2.move(rightControl);
 
 		pros::delay(2);
 
