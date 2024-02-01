@@ -10,6 +10,9 @@
 	pros::Motor wingLeft (7, MOTOR_GEARSET_36, false);
 	pros::Motor wingRight (1, MOTOR_GEARSET_36, true);
 
+	pros::Motor launcher (7, MOTOR_GEARSET_36, false);
+	
+
 
 double averageMotorVoltage(){
 	double x = (abs(left1.get_voltage()) + abs(left2.get_voltage()) + abs(right1.get_voltage()) + abs(right2.get_voltage()))/4;
@@ -161,11 +164,7 @@ drive(80, 3600 );
 }
 
 void opcontrol() {
-
-
-void opcontrol();
-
-
+	launcher.set_brake_mode(MOTOR_BRAKE_COAST);
 	int wingState = 1;
 
 	
@@ -188,6 +187,18 @@ void opcontrol();
 		right2.move(rightControl);
 
 		pros::delay(2);
+
+
+		while(!master.get_digital(DIGITAL_B)){
+
+				launcher.move(127);
+				if(master.get_digital(DIGITAL_B)){
+				launcher.brake();
+
+				break;
+			}
+		}
+			
 
 
 		switch(master.get_digital(DIGITAL_A)) {
