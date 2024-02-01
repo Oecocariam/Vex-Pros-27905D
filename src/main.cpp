@@ -189,15 +189,15 @@ void opcontrol() {
 		pros::delay(2);
 
 
-		while(!master.get_digital(DIGITAL_B)){
 
-				launcher.move(127);
-				if(master.get_digital(DIGITAL_B)){
+		launcher.move(127);
+
+			if(master.get_digital(DIGITAL_B)){
+
 				launcher.brake();
+				pros::delay(100);
 
-				break;
-			}
-		}
+
 			
 
 
