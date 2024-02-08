@@ -278,11 +278,6 @@ void opcontrol() {
 
 		}
 
-		switch(master.get_digital(DIGITAL_R1)){
-
-
-		}
-
 		switch(master.get_digital(DIGITAL_A)) {
 
 			case true:
