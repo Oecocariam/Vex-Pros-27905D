@@ -194,9 +194,9 @@ void opcontrol() {
 
 			if(master.get_digital(DIGITAL_B)){
 
-				launcher.brake();
+				launcher.move(-9999);
 				pros::delay(100);
-
+			}
 
 			
 
