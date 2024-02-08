@@ -213,6 +213,9 @@ void opcontrol() {
 			wingState *= -1;
 			pros::delay(200);
 
+			wingLeft.brake();
+			wingRight.brake();
+
 			break;
 		}
 	}
