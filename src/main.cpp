@@ -7,10 +7,10 @@
 	pros::Motor right1 (9, MOTOR_GEARSET_18, false); 
 	pros::Motor right2 (10, MOTOR_GEARSET_18, false); 
 
-	pros::Motor wingLeft (7, MOTOR_GEARSET_36, false);
-	pros::Motor wingRight (1, MOTOR_GEARSET_36, true);
+	pros::Motor wingLeft (3, MOTOR_GEARSET_36, false);
+	pros::Motor wingRight (8, MOTOR_GEARSET_36, true);
 
-	pros::Motor launcher (7, MOTOR_GEARSET_36, false);
+	pros::Motor launcher (11, MOTOR_GEARSET_36, false);
 	
 
 
@@ -164,10 +164,17 @@ drive(80, 3600 );
 }
 
 void opcontrol() {
-	wingLeft.set_brake_mode(MOTOR_BRAKE_BRAKE);
-	wingRight.set_brake_mode(MOTOR_BRAKE_BRAKE);
+
+	wingLeft.tare_position();
+	wingRight.tare_position();
+
+	wingLeft.set_brake_mode(MOTOR_BRAKE_HOLD);
+	wingRight.set_brake_mode(MOTOR_BRAKE_HOLD);
 	launcher.set_brake_mode(MOTOR_BRAKE_COAST);
+
 	int wingState = 1;
+	int leftWingState = 1;
+	int rightWingState = 1;
 
 	
 //	definition of piston, controller , and motors
@@ -178,7 +185,6 @@ void opcontrol() {
 		
 
 		int leftControl = (master.get_analog(ANALOG_LEFT_Y))+(0.5*master.get_analog(ANALOG_LEFT_X));
-
 		int rightControl = (master.get_analog(ANALOG_LEFT_Y))-(0.5*master.get_analog(ANALOG_LEFT_X));
 		
 
@@ -197,26 +203,128 @@ void opcontrol() {
 			if(master.get_digital(DIGITAL_B)){
 
 				launcher.move(-9999);
-				pros::delay(100);
+
+				pros::delay(200);
 			}
 
 			
 
+//later use bit integer to simplify process
 
-		switch(master.get_digital(DIGITAL_A)) {
+		switch(master.get_digital(DIGITAL_R1)){
 
-			
 			case true:
 
-			wingRight.move_relative(90*wingState, 200);
-			wingLeft.move_relative(90*wingState, 200);
-			wingState *= -1;
-			pros::delay(200);
+			switch(rightWingState == 1){
 
-			wingLeft.brake();
+				case true:
+
+					wingRight.move_absolute(90, 200);
+
+					rightWingState = -1;
+
+					pros::delay(200);
+
+				break;
+
+			}
+
+			switch(rightWingState == -1){
+
+				case true:
+
+					wingRight.move_absolute(0, 200);
+
+					rightWingState = 1;
+
+					pros::delay(200);
+
+				break;
+
 			wingRight.brake();
 
 			break;
+		}
+
+		switch(master.get_digital(DIGITAL_L1)){
+
+			switch(leftWingState == 1){
+
+				case true:
+
+					wingLeft.move_absolute(90, 200);
+
+					leftWingState = -1;
+
+					pros::delay(200);
+
+				break;
+
+			}
+
+			switch(leftWingState == -1){
+
+				case true:
+
+					wingLeft.move_absolute(0, 200);
+
+					leftWingState = 1;
+
+					pros::delay(200);
+
+				break;
+
+			wingLeft.brake();
+
+		}
+
+		switch(master.get_digital(DIGITAL_R1)){
+
+
+		}
+
+		switch(master.get_digital(DIGITAL_A)) {
+
+			case true:
+
+			switch((rightWingState || leftWingState) == -1){
+
+				case true:
+
+
+					wingRight.move_absolute(0, 200);
+					wingLeft.move_absolute(0, 200);
+					
+					leftWingState = 1;
+					rightWingState = 1;
+
+					pros::delay(200);
+
+				break;
+
+				case false:
+
+					wingRight.move_absolute(90, 200);
+					wingLeft.move_absolute(90, 200);
+
+					leftWingState = -1;
+					rightWingState = -1;
+
+					pros::delay(200);
+
+				break;
+
+			};
+				wingLeft.brake();
+				wingRight.brake();
+
+				break;
+
+				case false:
+
+					break;
+
+			}
 		}
 	}
 }
