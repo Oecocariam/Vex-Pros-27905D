@@ -164,6 +164,8 @@ drive(80, 3600 );
 }
 
 void opcontrol() {
+	wingLeft.set_brake_mode(MOTOR_BRAKE_BRAKE);
+	wingRight.set_brake_mode(MOTOR_BRAKE_BRAKE);
 	launcher.set_brake_mode(MOTOR_BRAKE_COAST);
 	int wingState = 1;
 
