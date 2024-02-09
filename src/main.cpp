@@ -184,7 +184,7 @@ void opcontrol() {
 		
 
 		int leftControl = -(master.get_analog(ANALOG_LEFT_Y))+(0.5*master.get_analog(ANALOG_LEFT_X));
-		int rightControl = (master.get_analog(ANALOG_LEFT_Y))-(0.5*master.get_analog(ANALOG_LEFT_X));
+		int rightControl = -(master.get_analog(ANALOG_LEFT_Y))-(0.5*master.get_analog(ANALOG_LEFT_X));
 		
 
 		left1.move(leftControl);
