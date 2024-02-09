@@ -141,7 +141,7 @@ void autonomous() {
 
 drive(80, 3600 );
 pros::delay(100);
-
+/*
 for (size_t i = 0; i <= 4; i++)
 {
 	drive(-40, 3600 );
@@ -154,7 +154,7 @@ for (size_t i = 0; i <= 4; i++)
 turn(90, 3600, 1 );
 pros::delay(100);
 drive(80, 3600 );
-
+*/
 
 
 /**
