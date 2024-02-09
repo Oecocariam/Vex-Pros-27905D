@@ -209,7 +209,7 @@ void opcontrol() {
 			
 
 //later use bit integer to simplify process
-
+/*
 		switch(master.get_digital(DIGITAL_R1)){
 
 			case true:
@@ -242,6 +242,8 @@ void opcontrol() {
 			}
 		}
 
+*/
+
 		switch(master.get_digital(DIGITAL_L1)){
 
 			case true:
@@ -250,7 +252,7 @@ void opcontrol() {
 
 				case true:
 
-					wingLeft.move_absolute(90, 200);
+					wingLeft.move_absolute(95, 200);
 
 					leftWingState = -1;
 
