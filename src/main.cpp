@@ -54,8 +54,8 @@ void turn (double robot_degrees, double speed, int negatation) {
 	left1.move_relative(motor_degrees, speed);
 	left2.move_relative(motor_degrees, speed);
 
-	right1.move_relative(-motor_degrees, speed);
-	right2.move_relative(-motor_degrees, speed);
+	right1.move_relative(motor_degrees, speed);
+	right2.move_relative(motor_degrees, speed);
 
 	pros::delay(100);
 
