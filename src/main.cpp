@@ -227,11 +227,7 @@ void opcontrol() {
 
 				break;
 
-			}
-
-			switch(rightWingState == -1){
-
-				case true:
+				case false:
 
 					wingRight.move_absolute(0, 200);
 
