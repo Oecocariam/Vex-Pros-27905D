@@ -239,6 +239,7 @@ void opcontrol() {
 			wingRight.brake();
 
 			break;
+			}
 		}
 
 		switch(master.get_digital(DIGITAL_L1)){
@@ -270,6 +271,8 @@ void opcontrol() {
 			wingLeft.brake();
 
 			break;
+
+			}
 		}
 
 		switch(master.get_digital(DIGITAL_A)) {
@@ -315,7 +318,7 @@ void opcontrol() {
 				
 
 		}
-			}
-		}
 	}
 }
+
+
