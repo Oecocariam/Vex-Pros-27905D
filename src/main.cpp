@@ -20,7 +20,7 @@ double averageMotorVoltage(){
 
 void drive (double distance, double speed ) { 
 
-		double efficiency_modifier =1;
+		double efficiency_modifier = .96969696;
 
 		double degreesTurned = (distance*efficiency_modifier/double(31.415))*360;
 
