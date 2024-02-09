@@ -244,6 +244,7 @@ void opcontrol() {
 
 */
 
+
 		switch(master.get_digital(DIGITAL_L1)){
 
 			case true:
@@ -262,7 +263,7 @@ void opcontrol() {
 
 				case false:
 
-					wingLeft.move_absolute(0, 200);
+					wingLeft.move_absolute(-20, 200);
 
 					leftWingState = 1;
 
