@@ -135,12 +135,12 @@ void competition_initialize() {}
  */
 void autonomous() {
 
-	wingLeft.move_absolute(-40, 200);
+	wingLeft.move_relative(-40, 200);
 	pros::delay(200);
 	wingLeft.brake();
 
-drive(80, 3600 );
-pros::delay(100);
+	drive(80, 3600 );
+	pros::delay(100);
 /*
 for (size_t i = 0; i <= 4; i++)
 {
