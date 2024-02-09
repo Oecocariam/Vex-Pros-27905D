@@ -7,7 +7,7 @@
 	pros::Motor right1 (9, MOTOR_GEARSET_18, false); 
 	pros::Motor right2 (10, MOTOR_GEARSET_18, false); 
 
-	pros::Motor wingLeft (3, MOTOR_GEARSET_36, false);
+	pros::Motor wingLeft (7, MOTOR_GEARSET_36, false);
 	pros::Motor wingRight (8, MOTOR_GEARSET_36, true);
 
 	pros::Motor launcher (11, MOTOR_GEARSET_36, false);
@@ -318,7 +318,9 @@ void opcontrol() {
 				case false:
 
 					break;
+				
 
+		}
 			}
 		}
 	}
