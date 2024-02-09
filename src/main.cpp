@@ -263,7 +263,7 @@ void opcontrol() {
 
 				case false:
 
-					wingLeft.move_absolute(-20, 200);
+					wingLeft.move_absolute(-40, 200);
 
 					leftWingState = 1;
 
