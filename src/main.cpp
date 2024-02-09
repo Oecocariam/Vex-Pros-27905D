@@ -28,8 +28,8 @@ void drive (double distance, double speed ) {
 
 		double baseMotorVoltager = averageMotorVoltage();
 
-		left1.move_relative(degreesTurned, speed);
-		left2.move_relative(degreesTurned, speed);
+		left1.move_relative(-degreesTurned, speed);
+		left2.move_relative(-degreesTurned, speed);
 
 		right1.move_relative(degreesTurned, speed);
 		right2.move_relative(degreesTurned, speed);	
@@ -94,6 +94,14 @@ void initialize() {
 	pros::lcd::set_text(1, "Hello PROS User!");
 
 	pros::lcd::register_btn1_cb(on_center_button);
+
+	wingLeft.set_brake_mode(MOTOR_BRAKE_HOLD);
+	wingRight.set_brake_mode(MOTOR_BRAKE_HOLD);
+	launcher.set_brake_mode(MOTOR_BRAKE_COAST);
+
+	wingLeft.move_absolute(-40, 200);
+	pros::delay(200);
+	wingLeft.brake();
 }
 
 /**
@@ -277,7 +285,7 @@ void opcontrol() {
 
 			}
 		}
-
+/*
 		switch(master.get_digital(DIGITAL_A)) {
 
 			case true:
@@ -321,6 +329,7 @@ void opcontrol() {
 				
 
 		}
+		*/
 	}
 }
 
