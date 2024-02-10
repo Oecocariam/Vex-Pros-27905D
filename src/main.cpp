@@ -165,11 +165,11 @@ drive(80, 3600 );
 
 void opcontrol() {
 
-
+	wingLeft.tare_position();
 	wingLeft.move_absolute(-40, 200);
 	pros::delay(200);
 	wingLeft.brake();
-wingLeft.tare_position();
+
 	
 	wingRight.tare_position();
 
