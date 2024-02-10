@@ -281,6 +281,11 @@ void opcontrol() {
 
 			break;
 
+			default:
+
+				wingLeft.brake();
+
+				break;
 			}
 		}
 /*
