@@ -139,12 +139,11 @@ void autonomous() {
 	pros::delay(200);
 	wingLeft.brake();
 
-	drive(80, 3600 );
+	drive(90, 3600 );
 	pros::delay(100);
 
-turn(90, 3600, -1 );
+drive(-40, 3600 );
 pros::delay(100);
-drive(80, 3600 );
 
 
 
