@@ -142,9 +142,14 @@ void autonomous() {
 	drive(90, 3600 );
 	pros::delay(100);
 
-drive(-40, 3600 );
-pros::delay(100);
+	drive(-20, 3600 );
+	pros::delay(100);
 
+	drive(40, 3600 );
+	pros::delay(100);
+
+	drive(-20, 3600 );
+	pros::delay(100);
 
 
 /**
@@ -159,7 +164,7 @@ pros::delay(100);
  * If the robot is disabled or communications is lost, the
  * operator control task will be stopped. Re-enabling the robot will restart the
  * task, not resume it from where it left off.
- */
+ */	
 }
 
 void opcontrol() {
