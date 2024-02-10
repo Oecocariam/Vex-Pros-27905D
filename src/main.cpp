@@ -165,11 +165,12 @@ drive(80, 3600 );
 
 void opcontrol() {
 
+
 	wingLeft.move_absolute(-40, 200);
 	pros::delay(200);
 	wingLeft.brake();
-
-	wingLeft.tare_position();
+wingLeft.tare_position();
+	
 	wingRight.tare_position();
 
 	wingLeft.set_brake_mode(MOTOR_BRAKE_HOLD);
@@ -258,7 +259,7 @@ void opcontrol() {
 
 				case true:
 
-					wingLeft.move_absolute(120, 200);
+					wingLeft.move_absolute(120, 9999);
 
 					leftWingState = -1;
 
@@ -268,7 +269,7 @@ void opcontrol() {
 
 				case false:
 
-					wingLeft.move_absolute(-40, 200);
+					wingLeft.move_absolute(-40, 9999);
 
 					leftWingState = 1;
 
