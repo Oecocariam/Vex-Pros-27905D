@@ -16,6 +16,10 @@ using namespace std;
 
 	bitset<1> intakeState(0);
 
+	/*
+		0th value: motor running
+	*/
+
 double averageMotorVoltage(){
 	double x = (abs(left1.get_voltage()) + abs(left2.get_voltage()) + abs(right1.get_voltage()) + abs(right2.get_voltage()))/4;
 	return x;
