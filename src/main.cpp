@@ -1,6 +1,9 @@
 #include "main.h"
+#include <bits/stdc++.h> 
+using namespace std; 
 
-		pros::Controller master (CONTROLLER_MASTER);
+
+	pros::Controller master (CONTROLLER_MASTER);
 
 	pros::Motor left1 ( (int)1, MOTOR_GEARSET_18, true, MOTOR_ENCODER_DEGREES);
 	pros::Motor left2 (2, MOTOR_GEARSET_18, true, MOTOR_ENCODER_DEGREES); 
@@ -11,6 +14,7 @@
 
 	pros::Motor intake (7, MOTOR_GEARSET_36, false, MOTOR_ENCODER_DEGREES);
 
+	bitset<1> intakeState(0);
 
 double averageMotorVoltage(){
 	double x = (abs(left1.get_voltage()) + abs(left2.get_voltage()) + abs(right1.get_voltage()) + abs(right2.get_voltage()))/4;
@@ -181,7 +185,34 @@ void opcontrol() {
 		pros::delay(2);
 
 
+		//control of intake
 
+		switch(master.get_digital(DIGITAL_A)){
+			case true:
+			
+				switch(intakeState.test(0)){
+					
+					case 1:
+
+						intake.brake();
+						intakeState.reset(0);
+
+						break;
+
+					case 0:
+
+						intake.move(127);
+						intakeState.set(0);
+
+						break;
+				}
+
+				break;
+
+			case false:
+
+				break;
+		}
 			
 
 //later use bit integer to simplify process
