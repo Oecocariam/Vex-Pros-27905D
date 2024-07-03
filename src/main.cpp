@@ -4,13 +4,12 @@
 
 	pros::Motor left1 ( (int)1, MOTOR_GEARSET_18, true, MOTOR_ENCODER_DEGREES);
 	pros::Motor left2 (2, MOTOR_GEARSET_18, true, MOTOR_ENCODER_DEGREES); 
+	pros::Motor left3 (3, MOTOR_GEARSET_18, true, MOTOR_ENCODER_DEGREES); 
 	pros::Motor right1 (9, MOTOR_GEARSET_18, true, MOTOR_ENCODER_DEGREES); 
-	pros::Motor right2 (10, MOTOR_GEARSET_18, true, MOTOR_ENCODER_DEGREES); 
+	pros::Motor right2 (10, MOTOR_GEARSET_18, true, MOTOR_ENCODER_DEGREES);
+	pros::Motor right3 (12, MOTOR_GEARSET_18, true, MOTOR_ENCODER_DEGREES);  
 
-	pros::Motor wingLeft (7, MOTOR_GEARSET_36, false, MOTOR_ENCODER_DEGREES);
-	pros::Motor wingRight (8, MOTOR_GEARSET_36, true, MOTOR_ENCODER_DEGREES);
-
-	pros::Motor launcher (11, MOTOR_GEARSET_36, false, MOTOR_ENCODER_DEGREES);
+	pros::Motor intake (7, MOTOR_GEARSET_36, false, MOTOR_ENCODER_DEGREES);
 
 
 double averageMotorVoltage(){
@@ -20,7 +19,7 @@ double averageMotorVoltage(){
 
 void drive (double distance, double speed ) { 
 
-		double efficiency_modifier = .96969696;
+		double efficiency_modifier = 1.;
 
 		double degreesTurned = (distance*efficiency_modifier/double(31.415))*360;
 
@@ -30,9 +29,11 @@ void drive (double distance, double speed ) {
 
 		left1.move_relative(-degreesTurned, speed);
 		left2.move_relative(-degreesTurned, speed);
+		left3.move_relative(-degreesTurned, speed);
 
 		right1.move_relative(degreesTurned, speed);
 		right2.move_relative(degreesTurned, speed);	
+		right3.move_relative(degreesTurned, speed);	
 
 		pros::delay(100);
 
@@ -53,9 +54,11 @@ void turn (double robot_degrees, double speed, int negatation) {
 
 	left1.move_relative(motor_degrees, speed);
 	left2.move_relative(motor_degrees, speed);
+	left3.move_relative(motor_degrees, speed);
 
 	right1.move_relative(motor_degrees, speed);
 	right2.move_relative(motor_degrees, speed);
+	right3.move_relative(motor_degrees, speed);
 
 	pros::delay(100);
 
@@ -95,13 +98,13 @@ void initialize() {
 
 	pros::lcd::register_btn1_cb(on_center_button);
 
-	wingLeft.set_brake_mode(MOTOR_BRAKE_HOLD);
-	wingRight.set_brake_mode(MOTOR_BRAKE_HOLD);
-	launcher.set_brake_mode(MOTOR_BRAKE_COAST);
+//	wingLeft.set_brake_mode(MOTOR_BRAKE_HOLD);
+//	wingRight.set_brake_mode(MOTOR_BRAKE_HOLD);
+//	launcher.set_brake_mode(MOTOR_BRAKE_COAST);
 
-	wingLeft.move_absolute(-40, 200);
-	pros::delay(200);
-	wingLeft.brake();
+//	wingLeft.move_absolute(-40, 200);
+//	pros::delay(200);
+//	wingLeft.brake();
 }
 
 /**
@@ -135,22 +138,6 @@ void competition_initialize() {}
  */
 void autonomous() {
 
-	wingLeft.move_relative(-40, 200);
-	pros::delay(200);
-	wingLeft.brake();
-
-	drive(90, 3600 );
-	pros::delay(100);
-
-	drive(-20, 3600 );
-	pros::delay(100);
-
-	drive(40, 3600 );
-	pros::delay(100);
-
-	drive(-20, 3600 );
-	pros::delay(100);
-
 
 /**
  * Runs the operator control code. This function will be started in its own task
@@ -169,21 +156,7 @@ void autonomous() {
 
 void opcontrol() {
 
-	wingLeft.tare_position();
-	wingLeft.move_absolute(-40, 200);
-	pros::delay(200);
-	wingLeft.brake();
 
-	
-	wingRight.tare_position();
-
-	wingLeft.set_brake_mode(MOTOR_BRAKE_HOLD);
-	wingRight.set_brake_mode(MOTOR_BRAKE_HOLD);
-	launcher.set_brake_mode(MOTOR_BRAKE_COAST);
-
-	int wingState = 1;
-	int leftWingState = 1;
-	int rightWingState = 1;
 
 	
 //	definition of piston, controller , and motors
@@ -199,22 +172,15 @@ void opcontrol() {
 
 		left1.move(leftControl);
 		left2.move(leftControl);
+		left3.move(leftControl);
 
 		right1.move(rightControl);
 		right2.move(rightControl);
+		right3.move(rightControl);
 
 		pros::delay(2);
 
 
-
-		launcher.move(127);
-
-			if(master.get_digital(DIGITAL_B)){
-
-				launcher.move(-9999);
-
-				pros::delay(200);
-			}
 
 			
 
@@ -252,7 +218,7 @@ void opcontrol() {
 			}
 		}
 
-*/
+
 
 
 		switch(master.get_digital(DIGITAL_L1)){
