@@ -1,11 +1,11 @@
 #include "main.h"
-#include <bits/stdc++.h> 
+#include <bitset>
 using namespace std; 
 
 
 	pros::Controller master (CONTROLLER_MASTER);
 
-	pros::Motor left1 ( (int)1, MOTOR_GEARSET_18, true, MOTOR_ENCODER_DEGREES);
+	pros::Motor left1 (1, MOTOR_GEARSET_18, true, MOTOR_ENCODER_DEGREES);
 	pros::Motor left2 (2, MOTOR_GEARSET_18, true, MOTOR_ENCODER_DEGREES); 
 	pros::Motor left3 (3, MOTOR_GEARSET_18, true, MOTOR_ENCODER_DEGREES); 
 	pros::Motor right1 (9, MOTOR_GEARSET_18, true, MOTOR_ENCODER_DEGREES); 
@@ -340,5 +340,3 @@ void opcontrol() {
 		*/
 	}
 }
-
-
